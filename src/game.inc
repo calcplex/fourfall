@@ -1,0 +1,82 @@
+; Byte offsets into the game block.
+.equ board, 0
+.equ next, 400
+.equ bag, 403
+.equ bagpos, 410
+.equ piece, 411
+.equ rot, 412
+.equ hold, 413
+.equ used_hold, 414
+.equ x, 415
+.equ y, 416
+.equ state, 417
+.equ previous_state, 418
+.equ start_level, 419
+.equ level, 420
+.equ resets, 421
+.equ grounded, 422
+.equ rotated, 423
+.equ kick, 424
+.equ rows, 425
+.equ cleared, 465
+.equ spin, 466
+.equ b2b, 467
+.equ allclear, 468
+.equ message, 469
+.equ dirty_ui, 470
+.equ chain_bonus, 471
+.equ combo, 472
+.equ horizontal, 475
+.equ score, 478
+.equ best, 481
+.equ lines, 484
+.equ pieces, 487
+.equ now, 490
+.equ fall_at, 493
+.equ lock_at, 496
+.equ repeat_at, 499
+.equ soft_at, 502
+.equ effect_at, 505
+.equ held, 508
+.equ previous_keys, 511
+.equ seed, 514
+.equ pause_at, 517
+.equ message_at, 520
+.equ buffered, 523
+.equ game_size, 526
+
+.equ state_title, 0
+.equ state_play, 1
+.equ state_pause, 2
+.equ state_clearing, 3
+.equ state_dying, 4
+.equ state_over, 5
+.equ state_help, 6
+
+; Key bits as read_keys returns them: low byte, then high byte.
+.equ key_left, 0
+.equ key_right, 1
+.equ key_down, 2
+.equ key_up, 3
+.equ key_2nd, 4
+.equ key_alpha, 5
+.equ key_graph, 6
+.equ key_enter, 7
+.equ key_clear, 0
+.equ key_mode, 1
+.equ key_xtn, 2
+
+.equ ticks_per_second, 32768
+.macro TICKS name, ms
+    .equ \name, (\ms*ticks_per_second+500)/1000
+.endm
+TICKS lock_delay, 500
+TICKS das_delay, 150
+TICKS das_repeat_back, 110
+TICKS soft_interval, 35
+TICKS clear_time, 180
+TICKS clear_flash, 85
+TICKS death_time, 650
+TICKS death_flash, 110
+TICKS message_time, 1700
+TICKS retry_delay, 1000
